@@ -10,7 +10,8 @@ define('DB_CONFIG', [
     'dbname' => 'recipe_manager',  
     'username' => 'root',
     'password' => 'root',
-    'charset' => 'utf8'
+    'charset' => 'utf8',
+    'port' => '3307'
 ]);
 
 // Mode Debug (true pour afficher les erreurs, false pour cacher)

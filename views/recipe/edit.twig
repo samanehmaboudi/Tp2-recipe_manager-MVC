@@ -1,4 +1,4 @@
-{{ include('layouts/header.php', {title: 'Edit Recipe'}) }}
+{{ include('layouts/header.twig', {title: 'Edit Recipe'}) }}
 
 <div class="container">
     <form method="post">
@@ -28,7 +28,7 @@
         <label>Category
             <select name="category_id">
                 {% for category in categories %}
-                    <option value="{{ category.id }}" {% if recipe.category_id == category.id %}selected{% endif %}>
+                    <option value="{{ category.id }}" {% if recipe.category_id = category.id %}selected{% endif %}>
                         {{ category.name }}
                     </option>
                 {% endfor %}
@@ -43,4 +43,4 @@
     </form>
 </div>
 
-{{ include('layouts/footer.php') }}
+{{ include('layouts/footer.twig') }}

@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\Recipe;
 use App\Providers\View;
 use App\Providers\Validator;
+use App\Models\Category;
 
 class RecipeController {
 
@@ -14,7 +15,10 @@ class RecipeController {
     }
 
     public function create() {
-        return View::render('recipe/create');
+        $category = new Category;
+        $categories = $category->all();
+        return View::render('recipe/create', ['categories' => $categories]);
+    
     }
 
     public function show($data = []) {

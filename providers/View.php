@@ -9,7 +9,7 @@ class View {
 
     private static function init() {
         if (self::$twig === null) {
-            $loader = new FilesystemLoader(__DIR__ . '/../../views');
+            $loader = new FilesystemLoader(__DIR__ . '/../views');
             self::$twig = new Environment($loader, [
                 'cache' => __DIR__ . '/../../cache', // Activer le cache pour de meilleures performances
                 'debug' => true // Activer le mode debug pour Twig

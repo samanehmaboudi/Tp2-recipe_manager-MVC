@@ -11,9 +11,9 @@ use App\Routes\Route;
 Route::get('/', 'HomeController@index');
 
 // Routes pour les recettes (RecipeController)
-Route::get('/recipes', 'RecipeController@index');         // Liste des recettes
+Route::get('/recipes', 'RecipeController@index');    
+Route::get('/recipe/create', 'RecipeController@create');  // Formulaire d'ajout de recette     // Liste des recettes
 Route::get('/recipe/{id}', 'RecipeController@show');      // Détail d'une recette (avec ID dynamique)
-Route::get('/recipe/create', 'RecipeController@create');  // Formulaire d'ajout de recette
 Route::post('/recipe', 'RecipeController@store');         // Ajout d'une recette
 Route::get('/recipe/{id}/edit', 'RecipeController@edit'); // Formulaire d'édition
 Route::post('/recipe/{id}/edit', 'RecipeController@update'); // Modification d'une recette
