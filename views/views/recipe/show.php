@@ -1,0 +1,19 @@
+{{ include('layouts/header.php', {title:'Recipe Details'}) }}
+
+<div class="container">
+    <h1>{{ recipe.title }}</h1>
+
+    <p><strong>Category: </strong>{{ recipe.category_name }}</p>
+    <p><strong>Ingredients: </strong>{{ recipe.ingredients }}</p>
+    <p><strong>Instructions: </strong>{{ recipe.instructions }}</p>
+
+    <a href="{{ base }}/recipes" class="btn">Back to Recipes</a>
+    <a href="{{ base }}/recipe/{{ recipe.id }}/edit" class="btn">Edit</a>
+
+    <form action="{{ base }}/recipe/{{ recipe.id }}/delete" method="post" style="display:inline;">
+        <input type="hidden" name="id" value="{{ recipe.id }}">
+        <input type="submit" class="btn red" value="Delete">
+    </form>
+</div>
+
+{{ include('layouts/footer.php') }}

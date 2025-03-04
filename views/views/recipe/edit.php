@@ -1,0 +1,46 @@
+{{ include('layouts/header.php', {title: 'Edit Recipe'}) }}
+
+<div class="container">
+    <form method="post">
+        <h2>Edit Recipe</h2>
+
+        <label>Title
+            <input type="text" name="title" value="{{ recipe.title }}">
+        </label>
+        {% if errors.title is defined %}
+            <span class="error"> {{ errors.title }}</span>
+        {% endif %}
+
+        <label>Ingredients
+            <textarea name="ingredients">{{ recipe.ingredients }}</textarea>
+        </label>
+        {% if errors.ingredients is defined %}
+            <span class="error"> {{ errors.ingredients }}</span>
+        {% endif %}
+
+        <label>Instructions
+            <textarea name="instructions">{{ recipe.instructions }}</textarea>
+        </label>
+        {% if errors.instructions is defined %}
+            <span class="error"> {{ errors.instructions }}</span>
+        {% endif %}
+
+        <label>Category
+            <select name="category_id">
+                {% for category in categories %}
+                    <option value="{{ category.id }}" {% if recipe.category_id == category.id %}selected{% endif %}>
+                        {{ category.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </label>
+
+        <label>Active
+            <input type="checkbox" name="active" value="1" {% if recipe.active %}checked{% endif %}>
+        </label>
+
+        <input type="submit" value="Save" class="btn">
+    </form>
+</div>
+
+{{ include('layouts/footer.php') }}

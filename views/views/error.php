@@ -1,0 +1,16 @@
+{{ include('layouts/header.php', {title: 'Error'}) }}
+
+<div class="container error-page">
+    <h1>Oops! Something went wrong.</h1>
+    <h2>Error 404 - Page Not Found</h2>
+
+    {% if msg is defined and msg is not empty %}
+        <p class="error-message">{{ msg }}</p>
+    {% else %}
+        <p class="error-message">The page you are looking for does not exist or has been moved.</p>
+    {% endif %}
+
+    <a href="{{ base }}/" class="btn">Return to Home</a>
+</div>
+
+{{ include('layouts/footer.php') }}
