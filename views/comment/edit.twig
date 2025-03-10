@@ -1,0 +1,16 @@
+{{ include('layouts/header.twig', {title:'Edit Comment'}) }}
+
+<div class="container">
+    <h1>Edit Comment</h1>
+
+    <form action="{{ base }}/comment/{{ comment.id }}/update" method="post">
+        <label for="content">Comment:</label>
+        <textarea id="content" name="content" required>{{ comment.content }}</textarea>
+
+        <input type="submit" class="btn" value="Update Comment">
+    </form>
+
+    <a href="{{ base }}/comments" class="btn">Back to Comments</a>
+</div>
+
+{{ include('layouts/footer.twig') }}

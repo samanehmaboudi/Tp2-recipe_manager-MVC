@@ -1,7 +1,7 @@
 <?php 
 
 // Chemins de base
-define('BASE', '/webDynamiqueAvancer/lesTP/recipe_manager_mvc');
+define('BASE', '/webDynamiqueAvancer/recipe_manager_mvc');
 define('ASSET', BASE . '/public');
 
 // Paramètres de la base de données

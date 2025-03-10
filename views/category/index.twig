@@ -1,0 +1,18 @@
+{{ include('layouts/header.twig', {title:'Categorie Details'}) }}
+
+<div class="container">
+    <h1>{{ categorie.title }}</h1>
+
+    <p><strong>Category: </strong>{{ categorie.category_name }}</p>
+    <p><strong>Details: </strong>{{ categorie.details }}</p>
+
+    <a href="{{ base }}/categories" class="btn">Back to categories</a>
+    <a href="{{ base }}/categorie/{{ categorie.id }}/edit" class="btn">Edit</a>
+
+    <form action="{{ base }}/categorie/{{ categorie.id }}/delete" method="post" style="display:inline;">
+        <input type="hidden" name="id" value="{{ categorie.id }}">
+        <input type="submit" class="btn red" value="Delete">
+    </form>
+</div>
+
+{{ include('layouts/footer.twig') }}

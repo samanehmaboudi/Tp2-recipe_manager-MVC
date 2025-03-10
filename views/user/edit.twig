@@ -1,0 +1,19 @@
+{{ include('layouts/header.twig', {title:'Edit User'}) }}
+
+<div class="container">
+    <h1>Edit User</h1>
+
+    <form action="{{ base }}/user/{{ user.id }}/update" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ user.name }}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ user.email }}" required>
+
+        <input type="submit" class="btn" value="Save Changes">
+    </form>
+
+    <a href="{{ base }}/users" class="btn">Back to Users</a>
+</div>
+
+{{ include('layouts/footer.twig') }}

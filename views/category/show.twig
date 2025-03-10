@@ -1,0 +1,20 @@
+{{ include('layouts/header.twig', {title:'Category Details'}) }} 
+
+<div class="container">
+    <h1>{{ categorie.name }}</h1>
+
+    {% if categorie.description %}
+        <p><strong>Description: </strong>{{ categorie.description }}</p>
+    {% endif %}
+
+    <a href="{{ base }}/categorie" class="btn">Back to Categories</a>
+    <a href="{{ base }}/categorie/{{ categorie.id }}/edit" class="btn">Edit</a>
+
+    <form action="{{ base }}/categorie/{{ categorie.id }}/delete" method="post" style="display:inline;"
+          onsubmit="return confirm('Are you sure you want to delete this category?');">
+        <input type="hidden" name="id" value="{{ categorie.id }}">
+        <input type="submit" class="btn red" value="Delete">
+    </form>
+</div>
+
+{{ include('layouts/footer.twig') }}

@@ -1,17 +1,13 @@
-<?php
+<?php 
 
 namespace App\Controllers;
 
-use App\Models\ExampleModel;
 use App\Providers\View;
 
+class HomeController {
 
-class HomeController{
-
-    public function index(){
-
-        return View::render('home');
-
+    public function index(): void {
+        View::render('home');
     }
 
 }

@@ -1,0 +1,38 @@
+{{ include('layouts/header.twig', {title:'User List'}) }} 
+
+<div class="container">
+    <h1>User List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a href="{{ base }}/user/{{ user.id }}" class="btn">View</a>
+                        <a href="{{ base }}/user/{{ user.id }}/edit" class="btn">Edit</a>
+                        <form action="{{ base }}/user/{{ user.id }}/delete" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="{{ user.id }}">
+                            <input type="submit" class="btn red" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ base }}/user/create" class="btn">Add New User</a>
+</div>
+
+{{ include('layouts/footer.twig') }}
+

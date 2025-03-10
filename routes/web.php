@@ -20,14 +20,23 @@ Route::post('/recipe/{id}/edit', 'RecipeController@update'); // Modification d'u
 Route::post('/recipe/{id}/delete', 'RecipeController@delete'); // Suppression d'une recette
 
 // Routes pour les catégories (CategoryController)
-Route::get('/categories', 'CategoryController@index');       // Liste des catégories
-Route::post('/category', 'CategoryController@store');        // Ajouter une catégorie
-Route::post('/category/{id}/edit', 'CategoryController@update'); // Modifier une catégorie
-Route::post('/category/{id}/delete', 'CategoryController@delete'); // Supprimer une catégorie
+Route::get('/categories', 'CategoryController@index');       //Liste des catégories
+Route::get('/category/{id}', 'CategoryController@show');     // Détail d'une catégorie
+Route::get('/category/create', 'CategoryController@create'); // Formulaire d'ajout d'une catégorie
+Route::post('/categories', 'CategoryController@store');      // Ajouter une catégorie
+Route::get('/category/{id}/edit', 'CategoryController@edit'); // Formulaire de modification
+Route::post('/category/{id}', 'CategoryController@update');   // Modifier une catégorie
+Route::post('/category/{id}/delete', 'CategoryController@destroy'); // Supprimer une catégorie
 
 // Routes pour les utilisateurs (UserController)
 Route::get('/register', 'UserController@register');         // Formulaire d'inscription
-Route::post('/register', 'UserController@store');           // Traitement de l'inscriptionnexion
+Route::post('/user/store', 'UserController@store');         // Enregistrer un nouvel utilisateur
+Route::get('/users', 'UserController@index');               // Liste des utilisateurs
+Route::get('/user/{id}', 'UserController@show');            // Détails d'un utilisateur
+Route::get('/user/{id}/edit', 'UserController@edit');       // Formulaire d'édition
+Route::post('/user/{id}/update', 'UserController@update');  // Mise à jour d'un utilisateur
+Route::post('/user/{id}/delete', 'UserController@destroy'); // Suppression d'un utilisateur
+
 
 // Routes pour les commentaires (CommentController)
 Route::post('/recipe/{id}/comment', 'CommentController@store'); // Ajouter un commentaire à une recette

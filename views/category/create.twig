@@ -1,0 +1,16 @@
+{{ include('layouts/header.twig', {title:'Create Category'}) }} 
+
+<div class="container">
+    <h1>Create New Category</h1>
+
+    <form action="{{ base }}/categorie/store" method="post">
+        <label for="name">Category Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <input type="submit" class="btn" value="Create Category">
+    </form>
+
+    <a href="{{ base }}/categories" class="btn">Back to Categories</a>
+</div>
+
+{{ include('layouts/footer.twig') }}
